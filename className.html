@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <script>
+        if(!document.getElementsByClassName){
+            document.getElementsByClassName = function(className,elem){
+                var children = (document||elem).getElementsByTagName("*");
+                var elems = [];
+                for(var i=0; i<children.length; i++){
+                    var child = children[i];
+                    var classnames = child.className.split(" ");
+                    for(var j=0; j<classnames.length; j++){
+                        if(classnames[j] == className){
+                            elems.push(child);
+                            break;
+                        }
+                    }
+                }
+                return  elems;
+            }
+        }
+    </script>
+    </body>
+</html>
